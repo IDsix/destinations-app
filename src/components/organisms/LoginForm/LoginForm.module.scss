@@ -1,0 +1,96 @@
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 32px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    margin-bottom: 8px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .subtitle {
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+  
+    &:disabled {
+      background: #f1f5f9;
+      cursor: not-allowed;
+    }
+  
+    &::placeholder {
+      color: #94a3b8;
+    }
+  }
+  
+  .error {
+    color: #dc2626;
+    background: #fee2e2;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 8px 0;
+  
+    &.warning {
+      color: #b45309;
+      background: #fef3c7;
+    }
+  }
+  
+  .lockoutTimer {
+    margin-top: 8px;
+    font-weight: 500;
+  }
+  
+  .button {
+    width: 100%;
+    padding: 14px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  
+    &:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+  
+    &:hover:not(:disabled) {
+      background: #2563eb;
+    }
+  }
+  
+  .demoHint {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+  }

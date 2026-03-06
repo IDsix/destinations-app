@@ -1,0 +1,199 @@
+.card {
+  background: rgb(92, 92, 92);
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  height: 30rem;
+  max-width: 22rem;
+  outline: 2px solid transparent;
+  transition: outline-color 0.6s ease, box-shadow 0.6s ease;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 10px 20px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    outline-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 24px 48px rgba(0, 0, 0, 0.15);
+    .destinationImage,
+    .toggleExpanded {
+      transform: scale(1.02);
+    }
+    .subItem {
+      transform: scale(1.02);
+    }
+  }
+}
+.destinationImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.1s ease;
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 10%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1e293b;
+  line-height: 1.2;
+  color: white;
+  z-index: 2;
+  padding-left: 1rem;
+}
+
+.stats {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin: 0;
+  color: white;
+  z-index: 2;
+  padding-left: 1rem;
+}
+
+.thumbnailSkeleton {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: pulse 1.2s linear infinite;
+}
+
+.skeleton .content {
+  padding-top: 12px;
+  width: 100%;
+}
+.skeleton::after {
+  display: none;
+}
+.lineShort,
+.lineLong,
+.lineStats {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    #e6eef6a6 25%,
+    #e6eef660 50%,
+    #e6eef607 75%
+  );
+  background-size: 200% 100%;
+  animation: pulse 1.2s linear infinite;
+  margin: 6px 0;
+}
+
+.lineShort {
+  width: 60%;
+}
+.lineLong {
+  width: 90%;
+}
+.lineStats {
+  width: 50%;
+  height: 10px;
+  margin-top: 4px;
+}
+
+.skeleton {
+  border-radius: 12px;
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.subList {
+  background: white;
+  max-height: 27rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  padding-top:1rem;
+  border-top:1px solid rgb(63, 38, 32);
+  gap: 0.5rem;
+  z-index: 2;
+  transition: transform 0.1s ease;
+}
+.reverse {
+  overflow-y: hidden;
+  flex-direction: column-reverse;
+}
+.toggle {
+  z-index: 2;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.8rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  height: 2rem;
+  transition: transform 0.1s ease;
+}
+.toggleExpanded {
+  color: black;
+  background-color: white;
+}
+.subItem {
+  display: flex;
+
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  transition: transform 0.1s ease;
+}
+
+.subThumbnail {
+  width: 8rem;
+  height: 5rem;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.subInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.subName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-heading, #1e293b);
+}
+.subListTitle{
+  text-align: center;
+  order: -1;
+}
+.subStats {
+  font-size: 0.78rem;
+  color: var(--color-muted, #9ca3af);
+}
