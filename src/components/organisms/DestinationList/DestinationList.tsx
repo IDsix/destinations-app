@@ -67,7 +67,7 @@ export default function DestinationList() {
             Array.from({ length: SKELETON_COUNT }).map((_, id) => (
               <DestinationCard key={`skeleton-${id}`} isLoading />
             ))
-          ) : filtered.length === 0 ? (
+          ) : filtered.length === 0 && !error ? (
             <p className={styles.empty}>
               No destinations found for "{searchTerm}"
             </p>

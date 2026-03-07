@@ -31,14 +31,11 @@ export async function POST(req: Request) {
       body: JSON.stringify({ username, password }),
     });
 
-    console.log('External login status:', externalRes.status);
-
-    if (!externalRes.ok) {
+      if (!externalRes.ok) {
       return NextResponse.json({ ok: false, reason: 'auth_failed' }, { status: 401 });
     }
 
     const externalBody: ExternalLoginResponse = await externalRes.json().catch(() => ({}));
-
     const sessionToken = externalBody.token ?? `session:${username}:${Date.now()}`;
 
     const res = NextResponse.json({ ok: true, username });
